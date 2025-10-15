@@ -30,12 +30,12 @@
     />
     <meta
       property="og:image"
-      content="https://basic.qedev.my.id/img/og-qedev.webp"
+      content="https://qedev.netlify.app/img/og-qedev.jpg"
     />
     <!-- 💡 Fallback kalau domain custom belum aktif -->
     <meta
       property="og:image:secure_url"
-      content="https://qedev.netlify.app/img/og-qedev.webp"
+      content="https://qedev.netlify.app/img/og-qedev.jpg"
     />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -60,7 +60,7 @@
     />
     <meta
       name="twitter:image"
-      content="https://basic.qedev.my.id/img/og-qedev.webp"
+      content="https://qedev.netlify.app/img/og-qedev.jpg"
     />
 
     <!-- ✅ Favicon -->
@@ -115,30 +115,25 @@
         will-change: transform, opacity;
       }
     </style>
+
+    <style>
+      /* ✨ Efek glow halus untuk elemen berwarna indigo */
+      .glow-indigo {
+        position: relative;
+        text-shadow: 0 0 8px rgba(79, 70, 229, 0.3),
+          0 0 16px rgba(79, 70, 229, 0.25);
+        transition: text-shadow 1s ease, color 0.6s ease;
+      }
+
+      /* Saat animasi aktif (fade-in) */
+      .glow-active {
+        text-shadow: 0 0 16px rgba(79, 70, 229, 0.6),
+          0 0 32px rgba(79, 70, 229, 0.4);
+      }
+    </style>
   </head>
 
   <body class="bg-gray-50 text-gray-800">
-    <!-- 💫 Preloader -->
-    <div
-      id="preloader"
-      class="fixed inset-0 flex flex-col items-center justify-center bg-white z-[9999] transition-all duration-700"
-    >
-      <div class="flex items-center gap-2 mb-4 animate-fade">
-        <div
-          class="w-10 h-10 bg-[#2B6EE6] flex items-center justify-center rounded-xl shadow-lg"
-        >
-          <span class="text-white text-xl font-bold tracking-tight">Qe</span>
-        </div>
-        <span class="text-lg font-semibold text-gray-700">Dev</span>
-      </div>
-      <div
-        class="w-8 h-8 border-4 border-[#2B6EE6]/30 border-t-[#2B6EE6] rounded-full animate-spin"
-      ></div>
-      <p class="text-gray-500 text-sm mt-3 animate-pulse">
-        Memuat pengalaman digital...
-      </p>
-    </div>
-
     <!-- ✅ Header -->
     <header
       id="mainHeader"
@@ -185,7 +180,7 @@
     <!-- ✅ Hero -->
     <section
       id="heroSection"
-      class="relative text-white py-28 text-center overflow-hidden transition-all duration-500"
+      class="relative text-white py-28 md:py-32 text-center overflow-hidden mb-20 transition-all duration-500"
       style="--x: 50%; --y: 40%"
     >
       <div
@@ -208,30 +203,80 @@
           data-animate
           class="text-4xl md:text-5xl font-extrabold mb-6 opacity-0 translate-y-6 transition-all duration-700 ease-out"
         >
-          Otomatisasi Spreadsheet Anda dengan
-          <span class="text-yellow-300">Paket Basic</span>
+          Otomatisasi Spreadsheet Anda
+          <br />
+          dengan
+          <span class="text-yellow-300">Form + Script Otomatis Siap Pakai</span>
         </h2>
         <div
           id="heroIcons"
           data-animate
           class="flex justify-center items-center gap-3 mb-6 opacity-0 translate-y-6 transition-all duration-700 delay-200 ease-out"
         >
-          <div
-            class="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full shadow"
-          >
-            <span class="text-sm font-semibold">HTML</span>
-          </div>
-          <span class="opacity-70 font-bold text-lg">+</span>
-          <div
-            class="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full shadow"
-          >
-            <span class="text-sm font-semibold">Apps Script</span>
-          </div>
-          <span class="opacity-70 font-bold text-lg">+</span>
-          <div
-            class="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full shadow"
-          >
-            <span class="text-sm font-semibold">Spreadsheet</span>
+          <div class="flex items-center justify-center gap-3 mt-4">
+            <!-- HTML -->
+            <div
+              class="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full shadow"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 128 128"
+                class="w-5 h-5"
+              >
+                <path
+                  fill="#E34F26"
+                  d="M19 0l9 100 36 10 36-10 9-100H19z"
+                ></path>
+                <path fill="#EF652A" d="M64 117l29-8 8-92H64v100z"></path>
+                <path
+                  fill="#EBEBEB"
+                  d="M64 52H44l-2-20h22V12H29l1 12 4 44h30V52z"
+                ></path>
+                <path fill="#fff" d="M64 80l-18-5-1-11H33l2 25 29 8V80z"></path>
+              </svg>
+              <span class="text-sm font-semibold">HTML</span>
+            </div>
+
+            <span class="opacity-70 font-bold text-lg">+</span>
+
+            <!-- Apps Script -->
+            <div
+              class="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full shadow"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 48 48"
+                class="w-5 h-5"
+              >
+                <path fill="#34A853" d="M23 12l3-3 3 3-3 3z"></path>
+                <path fill="#4285F4" d="M33 22l3-3 3 3-3 3z"></path>
+                <path fill="#FBBC05" d="M23 32l3-3 3 3-3 3z"></path>
+                <path fill="#EA4335" d="M13 22l3-3 3 3-3 3z"></path>
+                <path fill="#188038" d="M23 12v24l3-3V15z"></path>
+              </svg>
+              <span class="text-sm font-semibold">Apps Script</span>
+            </div>
+
+            <span class="opacity-70 font-bold text-lg">+</span>
+
+            <!-- Spreadsheet -->
+            <div
+              class="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full shadow"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 48 48"
+                class="w-5 h-5"
+              >
+                <path fill="#188038" d="M6 8h36v32H6z"></path>
+                <path fill="#34A853" d="M8 10h32v28H8z"></path>
+                <path
+                  fill="#fff"
+                  d="M14 16h20v2H14zm0 6h20v2H14zm0 6h20v2H14z"
+                ></path>
+              </svg>
+              <span class="text-sm font-semibold">Spreadsheet</span>
+            </div>
           </div>
         </div>
         <p
@@ -261,22 +306,36 @@
           data-animate
           class="text-3xl font-bold mb-6 flex items-center justify-center gap-2 text-gray-800"
         >
-          <span class="text-yellow-400 text-4xl">💡</span> Cocok Untuk Siapa?
+          <span class="text-yellow-400 text-4xl">💡</span> Siap Bantu Anda!
         </h3>
-        <p
-          data-animate
-          class="text-gray-600 text-lg mb-10 leading-relaxed max-w-2xl mx-auto"
+
+        <!-- Blok kalimat muncul bertahap -->
+        <div
+          class="max-w-2xl mx-auto text-gray-600 text-lg leading-relaxed space-y-6"
         >
-          Solusi <span class="font-semibold text-indigo-600">QEDev</span> cocok
-          untuk staf administrasi, guru, pegawai pemerintahan, dan pelaku usaha
-          kecil yang ingin mulai otomatisasi data tanpa repot.
-        </p>
+          <p
+            data-animate
+            data-delay="0"
+            class="opacity-0 translate-y-6 transition-all duration-700 ease-out mb-12"
+          >
+            Banyak orang menganggap
+            <span class="font-semibold text-indigo-600">Spreadsheet</span>
+            hanyalah tabel data biasa. Padahal, ketika dikombinasikan dengan
+            teknologi seperti
+            <span class="font-semibold text-indigo-600">HTML</span> dan
+            <span class="font-semibold text-indigo-600">Apps Script</span>,
+            spreadsheet bisa berubah menjadi
+            <span class="font-semibold text-indigo-600">sistem otomatis</span>
+            yang cerdas — membantu mempercepat pekerjaan dan mengelola data
+            dengan lebih efisien.
+          </p>
+        </div>
 
         <img
           data-animate
           src="img/teamOffice-600.webp"
           alt="Ilustrasi tim kolaborasi digital"
-          class="w-full max-w-[600px] mx-auto rounded-2xl shadow-lg"
+          class="w-full max-w-[600px] mx-auto rounded-2xl shadow-lg mt-8 md:mt-14"
           loading="lazy"
           decoding="async"
         />
@@ -339,7 +398,7 @@
             <ul class="text-left mb-8 space-y-3">
               <li>✅ Semua fitur Basic</li>
               <li>✅ Dashboard ringan (edit/delete)</li>
-              <li>✅ Serach/Filter Data</li>
+              <li>✅ Pencarian & Filtering Data</li>
               <li>✅ Export PDF / Excel otomatis</li>
               <li>✅ Branding / logo custom</li>
               <li>✅ 1x revisi kecil gratis</li>
@@ -387,7 +446,7 @@
       <div class="max-w-4xl mx-auto px-6">
         <iframe
           data-animate
-          class="w-full aspect-video rounded-2xl shadow-lg"
+          class="w-full aspect-video rounded-2xl shadow-lg mt-12"
           src="https://www.youtube.com/embed/OxxKmpB0RRc?rel=0"
           title="Demo Paket Basic"
           loading="lazy"
@@ -437,127 +496,113 @@
       </svg>
     </a>
 
-    <!-- ✅ Script -->
-    <script>
-      // 🔹 Preloader
-      window.addEventListener("load", () => {
-        const preloader = document.getElementById("preloader");
-        preloader.style.opacity = "0";
-        preloader.style.transform = "scale(1.05)";
-        setTimeout(() => preloader.remove(), 800);
-      });
-
-      // 🔹 Header Scroll Effect
-      const header = document.getElementById("mainHeader");
-      const logoBlue = document.getElementById("logoBlue");
-      const logoWhite = document.getElementById("logoWhite");
-      const brandText = document.getElementById("brandText");
-      const ctaButton = document.getElementById("ctaButton");
-
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 50) {
-          header.classList.add("bg-white", "shadow-md");
-          header.classList.remove("bg-transparent");
-          logoBlue.style.opacity = "1";
-          logoWhite.style.opacity = "0";
-          brandText.classList.replace("text-white", "text-indigo-600");
-          ctaButton.classList.replace("bg-white", "bg-indigo-600");
-          ctaButton.classList.replace("text-indigo-600", "text-white");
-        } else {
-          header.classList.remove("bg-white", "shadow-md");
-          header.classList.add("bg-transparent");
-          logoBlue.style.opacity = "0";
-          logoWhite.style.opacity = "1";
-          brandText.classList.replace("text-indigo-600", "text-white");
-          ctaButton.classList.replace("bg-indigo-600", "bg-white");
-          ctaButton.classList.replace("text-white", "text-indigo-600");
-        }
-      });
-
-      // 🔹 Scroll Animation + Stagger
-      const animatedEls = document.querySelectorAll("[data-animate]");
-      if (animatedEls.length) {
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              const el = entry.target;
-              if (entry.isIntersecting) {
-                const parent = el.parentElement;
-                const siblings = [...parent.querySelectorAll("[data-animate]")];
-                const index = siblings.indexOf(el);
-                el.style.transitionDelay = `${index * 0.15}s`;
-
-                el.classList.remove("opacity-0", "translate-y-6");
-                el.classList.add("opacity-100", "translate-y-0");
-                el.style.transition = "all 0.8s cubic-bezier(0.25,0.8,0.25,1)";
-                observer.unobserve(el);
-              }
-            });
-          },
-          { threshold: 0.15, rootMargin: "0px 0px -50px 0px" }
-        );
-        animatedEls.forEach((el) => {
-          el.classList.add("opacity-0", "translate-y-6");
-          observer.observe(el);
-        });
-      }
-
-      // 🔹 Floating WhatsApp muncul otomatis
-      const waBtn = document.getElementById("floatingWA");
-      let waVisible = false;
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 200 && !waVisible) {
-          waBtn.classList.remove(
-            "opacity-0",
-            "translate-y-6",
-            "pointer-events-none"
-          );
-          waBtn.classList.add("opacity-100", "translate-y-0");
-          waVisible = true;
-        } else if (window.scrollY <= 200 && waVisible) {
-          waBtn.classList.add(
-            "opacity-0",
-            "translate-y-6",
-            "pointer-events-none"
-          );
-          waBtn.classList.remove("opacity-100", "translate-y-0");
-          waVisible = false;
-        }
-      });
-    </script>
-    <!-- 🪄 Scroll Animation -->
+    <!-- ✅ Script Clean Final QEDev + Glow Effect -->
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        const animatedEls = document.querySelectorAll("[data-animate]");
+        /* ======================
+       🔹 2. HEADER SCROLL EFFECT
+    ====================== */
+        const header = document.getElementById("mainHeader");
+        const logoBlue = document.getElementById("logoBlue");
+        const logoWhite = document.getElementById("logoWhite");
+        const brandText = document.getElementById("brandText");
+        const ctaButton = document.getElementById("ctaButton");
 
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry, index) => {
-              if (entry.isIntersecting) {
-                // Tambahkan delay kecil biar muncul selang-seling (stagger)
-                setTimeout(() => {
-                  entry.target.classList.remove("opacity-0", "translate-y-6");
-                  entry.target.classList.add("opacity-100", "translate-y-0");
-                  entry.target.style.transition =
-                    "all 0.8s ease-out, opacity 0.6s ease-out";
-                }, index * 120);
-                observer.unobserve(entry.target);
-              }
-            });
-          },
-          { threshold: 0.2 }
-        );
+        window.addEventListener("scroll", () => {
+          const scrolled = window.scrollY > 50;
+          header.classList.toggle("bg-white", scrolled);
+          header.classList.toggle("shadow-md", scrolled);
+          header.classList.toggle("bg-transparent", !scrolled);
 
-        animatedEls.forEach((el) => {
-          el.classList.add(
-            "opacity-0",
-            "translate-y-6",
-            "transition-all",
-            "duration-700",
-            "ease-out"
-          );
-          observer.observe(el);
+          logoBlue.style.opacity = scrolled ? "1" : "0";
+          logoWhite.style.opacity = scrolled ? "0" : "1";
+
+          brandText.classList.toggle("text-white", !scrolled);
+          brandText.classList.toggle("text-indigo-600", scrolled);
+
+          ctaButton.classList.toggle("bg-white", !scrolled);
+          ctaButton.classList.toggle("text-indigo-600", !scrolled);
+          ctaButton.classList.toggle("bg-indigo-600", scrolled);
+          ctaButton.classList.toggle("text-white", scrolled);
         });
+
+        /* ======================
+       🔹 3. SCROLL ANIMATION + STAGGER + GLOW
+    ====================== */
+        const animatedEls = document.querySelectorAll("[data-animate]");
+        const glowEls = document.querySelectorAll(".text-indigo-600");
+
+        if (animatedEls.length) {
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                  const delay = entry.target.dataset.delay
+                    ? parseInt(entry.target.dataset.delay)
+                    : index * 120;
+
+                  setTimeout(() => {
+                    entry.target.classList.remove("opacity-0", "translate-y-6");
+                    entry.target.classList.add("opacity-100", "translate-y-0");
+                    entry.target.style.transition =
+                      "all 0.8s ease-out, opacity 0.6s ease-out";
+
+                    // ✨ Tambahkan efek glow untuk elemen berwarna indigo
+                    glowEls.forEach((glow) => {
+                      glow.classList.add("glow-indigo");
+                      glow.classList.add("glow-active");
+                      setTimeout(
+                        () => glow.classList.remove("glow-active"),
+                        1200
+                      );
+                    });
+                  }, delay);
+
+                  observer.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.2, rootMargin: "0px 0px -50px 0px" }
+          );
+
+          animatedEls.forEach((el) => {
+            el.classList.add(
+              "opacity-0",
+              "translate-y-6",
+              "transition-all",
+              "duration-700",
+              "ease-out"
+            );
+            observer.observe(el);
+          });
+        }
+
+        /* ======================
+       🔹 4. FLOATING WHATSAPP APPEAR
+    ====================== */
+        const waBtn = document.getElementById("floatingWA");
+        if (waBtn) {
+          let waVisible = false;
+          window.addEventListener("scroll", () => {
+            if (window.scrollY > 200 && !waVisible) {
+              waBtn.classList.remove(
+                "opacity-0",
+                "translate-y-6",
+                "pointer-events-none"
+              );
+              waBtn.classList.add("opacity-100", "translate-y-0");
+              waVisible = true;
+            } else if (window.scrollY <= 200 && waVisible) {
+              waBtn.classList.add(
+                "opacity-0",
+                "translate-y-6",
+                "pointer-events-none"
+              );
+              waBtn.classList.remove("opacity-100", "translate-y-0");
+              waVisible = false;
+            }
+          });
+        }
       });
     </script>
   </body>

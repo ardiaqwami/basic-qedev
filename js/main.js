@@ -1,6 +1,6 @@
 // ======================
 // QEDev | Paket Basic
-// main.js (Final Production Version)
+// main.js (Final Production + Scroll Animation Integration)
 // ======================
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -109,9 +109,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ======================
-  // Scroll Animation + Stagger (QEDev Deluxe)
+  // Scroll Animation + Fade-Up Integration (QEDev Smooth Observer)
   // ======================
-  const animatedEls = document.querySelectorAll("[data-animate]");
+  const animatedEls = document.querySelectorAll(
+    "[data-animate], [data-fade-up]"
+  );
 
   if (animatedEls.length) {
     const observer = new IntersectionObserver(
@@ -119,16 +121,32 @@ document.addEventListener("DOMContentLoaded", () => {
         entries.forEach((entry) => {
           const el = entry.target;
           if (entry.isIntersecting) {
-            // Urutan muncul selang-seling (stagger)
+            // 🔹 Hitung delay manual dari atribut data-delay (jika ada)
+            const customDelay = parseInt(el.dataset.delay) || 0;
+
+            // 🔹 Atau otomatis berdasarkan urutan
             const parent = el.parentElement;
-            const siblings = [...parent.querySelectorAll("[data-animate]")];
+            const siblings = [
+              ...parent.querySelectorAll("[data-animate], [data-fade-up]"),
+            ];
             const index = siblings.indexOf(el);
-            el.style.transitionDelay = `${index * 0.15}s`;
+            const autoDelay = index * 150; // 150ms per elemen
 
-            el.classList.remove("opacity-0", "translate-y-6");
-            el.classList.add("opacity-100", "translate-y-0");
+            // 🔹 Gabungkan keduanya (prioritas data-delay)
+            const finalDelay = customDelay || autoDelay;
 
-            el.style.transition = "all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1)";
+            setTimeout(() => {
+              el.style.transition = "all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1)";
+              if (el.hasAttribute("data-fade-up")) {
+                el.classList.remove("opacity-0", "translate-y-10");
+                el.classList.add("opacity-100", "translate-y-0");
+              } else {
+                el.classList.remove("opacity-0", "translate-y-6");
+                el.classList.add("opacity-100", "translate-y-0");
+              }
+            }, finalDelay);
+
+            // 🔹 Stop observer supaya animasi gak diulang terus
             observer.unobserve(el);
           }
         });
@@ -136,11 +154,21 @@ document.addEventListener("DOMContentLoaded", () => {
       { threshold: 0.15, rootMargin: "0px 0px -50px 0px" }
     );
 
+    // Inisialisasi awal semua elemen
     animatedEls.forEach((el) => {
-      el.classList.add("opacity-0", "translate-y-6");
+      if (el.hasAttribute("data-fade-up")) {
+        el.classList.add("opacity-0", "translate-y-10");
+      } else {
+        el.classList.add("opacity-0", "translate-y-6");
+      }
       observer.observe(el);
     });
   }
+
+  // 🔹 Fade-in body saat halaman selesai dimuat
+  window.addEventListener("load", () => {
+    document.body.classList.add("loaded");
+  });
 
   // ======================
   // Console Info (Optional)
