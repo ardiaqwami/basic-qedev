@@ -1,0 +1,13 @@
+# robots.txt for QEDev
+# Last updated: 2025-10-14
+# Izinkan semua mesin pencari mengindeks situs ini
+
+User-agent: *
+Allow: /
+
+# Blokir file internal (opsional)
+Disallow: /dist/
+Disallow: /img/raw/
+
+# Peta situs
+Sitemap: https://qedev.my.id/sitemap.xml
