@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
@@ -120,14 +120,18 @@
       /* ✨ Efek glow halus untuk elemen berwarna indigo */
       .glow-indigo {
         position: relative;
-        text-shadow: 0 0 8px rgba(79, 70, 229, 0.3),
+        text-shadow:
+          0 0 8px rgba(79, 70, 229, 0.3),
           0 0 16px rgba(79, 70, 229, 0.25);
-        transition: text-shadow 1s ease, color 0.6s ease;
+        transition:
+          text-shadow 1s ease,
+          color 0.6s ease;
       }
 
       /* Saat animasi aktif (fade-in) */
       .glow-active {
-        text-shadow: 0 0 16px rgba(79, 70, 229, 0.6),
+        text-shadow:
+          0 0 16px rgba(79, 70, 229, 0.6),
           0 0 32px rgba(79, 70, 229, 0.4);
       }
     </style>
@@ -187,7 +191,8 @@
         id="heroBg"
         class="absolute inset-0 transition-transform duration-500 ease-out"
         style="
-          background: radial-gradient(
+          background:
+            radial-gradient(
               circle at var(--x) var(--y),
               rgba(255, 255, 255, 0.15),
               transparent 60%
@@ -296,6 +301,147 @@
         >
           🚀 Lihat Detail Paket
         </a>
+      </div>
+    </section>
+
+    <!-- ✅ Masalah -->
+    <section class="py-20 bg-white text-center">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2
+          data-animate
+          class="text-3xl md:text-4xl font-bold mb-6 text-gray-800"
+        >
+          😫 Masih Ribet Kelola Data?
+        </h2>
+
+        <p data-animate class="text-gray-600 mb-12 max-w-2xl mx-auto">
+          Banyak sekolah, RT, UMKM, dan kantor kecil masih kerja manual pakai
+          Excel & WhatsApp. Akhirnya data berantakan dan buang waktu.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div data-animate class="bg-gray-50 p-6 rounded-xl shadow">
+            📄 Data tercecer di banyak file
+          </div>
+
+          <div data-animate class="bg-gray-50 p-6 rounded-xl shadow">
+            ⏱️ Rekap laporan lama
+          </div>
+
+          <div data-animate class="bg-gray-50 p-6 rounded-xl shadow">
+            ❌ Sering salah input
+          </div>
+
+          <div data-animate class="bg-gray-50 p-6 rounded-xl shadow">
+            📱 File hanya di WhatsApp
+          </div>
+
+          <div data-animate class="bg-gray-50 p-6 rounded-xl shadow">
+            📊 Laporan tidak rapi
+          </div>
+
+          <div data-animate class="bg-gray-50 p-6 rounded-xl shadow">
+            😵 Admin cepat capek
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ Portfolio -->
+    <section class="py-20 bg-gray-50">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2
+          data-animate
+          class="text-3xl md:text-4xl font-bold text-center mb-12"
+        >
+          🚀 Sistem Nyata Buatan QEDev
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Card -->
+          <div data-animate class="bg-white p-6 rounded-xl shadow-lg">
+            <h3 class="font-semibold text-lg mb-2">🎓 PMB Online Kampus</h3>
+            <p class="text-gray-600 text-sm">
+              Pendaftaran mahasiswa + upload dokumen otomatis ke Drive.
+            </p>
+          </div>
+
+          <div data-animate class="bg-white p-6 rounded-xl shadow-lg">
+            <h3 class="font-semibold text-lg mb-2">🏢 Sistem Data LKS</h3>
+            <p class="text-gray-600 text-sm">
+              Database lembaga + export Excel & PDF.
+            </p>
+          </div>
+
+          <div data-animate class="bg-white p-6 rounded-xl shadow-lg">
+            <h3 class="font-semibold text-lg mb-2">📄 Invoice Otomatis</h3>
+            <p class="text-gray-600 text-sm">
+              Generate invoice & DO langsung dari form.
+            </p>
+          </div>
+
+          <div data-animate class="bg-white p-6 rounded-xl shadow-lg">
+            <h3 class="font-semibold text-lg mb-2">🕒 Absensi Karyawan</h3>
+            <p class="text-gray-600 text-sm">
+              Absensi online + laporan otomatis.
+            </p>
+          </div>
+
+          <div data-animate class="bg-white p-6 rounded-xl shadow-lg">
+            <h3 class="font-semibold text-lg mb-2">💰 Iuran Warga RT</h3>
+            <p class="text-gray-600 text-sm">
+              Monitoring pembayaran iuran digital.
+            </p>
+          </div>
+
+          <div data-animate class="bg-white p-6 rounded-xl shadow-lg">
+            <h3 class="font-semibold text-lg mb-2">📋 Sistem Kependudukan</h3>
+            <p class="text-gray-600 text-sm">
+              Pendataan warga + arsip digital.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ Cara Kerja -->
+    <section class="py-20 bg-white text-center">
+      <div class="max-w-5xl mx-auto px-6">
+        <h2 data-animate class="text-3xl md:text-4xl font-bold mb-12">
+          ⚙️ Cara Kerja QEDev
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+          <div data-animate class="p-4">
+            <div class="text-3xl mb-2">💬</div>
+            <h4 class="font-semibold mb-1">Chat</h4>
+            <p class="text-sm text-gray-600">Konsultasi via WhatsApp</p>
+          </div>
+
+          <div data-animate class="p-4">
+            <div class="text-3xl mb-2">🧠</div>
+            <h4 class="font-semibold mb-1">Analisa</h4>
+            <p class="text-sm text-gray-600">Kebutuhan sistem Anda</p>
+          </div>
+
+          <div data-animate class="p-4">
+            <div class="text-3xl mb-2">⚙️</div>
+            <h4 class="font-semibold mb-1">Build</h4>
+            <p class="text-sm text-gray-600">Pengembangan sistem</p>
+          </div>
+
+          <div data-animate class="p-4">
+            <div class="text-3xl mb-2">🧪</div>
+            <h4 class="font-semibold mb-1">Testing</h4>
+            <p class="text-sm text-gray-600">Uji & revisi ringan</p>
+          </div>
+
+          <div data-animate class="p-4">
+            <div class="text-3xl mb-2">🚀</div>
+            <h4 class="font-semibold mb-1">Go Live</h4>
+            <p class="text-sm text-gray-600">Sistem siap dipakai</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -553,7 +699,7 @@
                       glow.classList.add("glow-active");
                       setTimeout(
                         () => glow.classList.remove("glow-active"),
-                        1200
+                        1200,
                       );
                     });
                   }, delay);
@@ -562,7 +708,7 @@
                 }
               });
             },
-            { threshold: 0.2, rootMargin: "0px 0px -50px 0px" }
+            { threshold: 0.2, rootMargin: "0px 0px -50px 0px" },
           );
 
           animatedEls.forEach((el) => {
@@ -571,7 +717,7 @@
               "translate-y-6",
               "transition-all",
               "duration-700",
-              "ease-out"
+              "ease-out",
             );
             observer.observe(el);
           });
@@ -588,7 +734,7 @@
               waBtn.classList.remove(
                 "opacity-0",
                 "translate-y-6",
-                "pointer-events-none"
+                "pointer-events-none",
               );
               waBtn.classList.add("opacity-100", "translate-y-0");
               waVisible = true;
@@ -596,7 +742,7 @@
               waBtn.classList.add(
                 "opacity-0",
                 "translate-y-6",
-                "pointer-events-none"
+                "pointer-events-none",
               );
               waBtn.classList.remove("opacity-100", "translate-y-0");
               waVisible = false;
