@@ -1,57 +1,102 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Paket Basic — Otomatisasi Spreadsheet | QEDev</title>
-
-    <!-- ✅ Tailwind CDN (dev), build CSS nanti -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- ✅ SEO & OG Meta -->
     <meta
       name="description"
-      content="Mulai otomatisasi data dengan HTML + Google Apps Script + Spreadsheet. Paket Basic QEDev cocok untuk staf admin, guru, pegawai pemerintahan, dan UMKM."
+      content="Buat sistem otomatisasi data HTML + Google Apps Script + Spreadsheet tanpa coding. Solusi QEDev cocok untuk staf admin, guru, dan UMKM."
     />
+    <meta name="author" content="QEDev Team" />
+    <meta
+      name="keywords"
+      content="QEDev, Otomatisasi Spreadsheet, Apps Script, Form HTML, Paket Basic, Spreadsheet Otomatis"
+    />
+
+    <!-- ✅ Canonical URL -->
     <link rel="canonical" href="https://basic.qedev.my.id/" />
+
+    <!-- ✅ Open Graph (Facebook, Instagram, LinkedIn) -->
     <meta property="og:type" content="website" />
     <meta
       property="og:title"
-      content="Paket Basic — Otomatisasi Spreadsheet | QEDev"
+      content="QEDev — Otomatisasi Spreadsheet Tanpa Ribet"
     />
     <meta
       property="og:description"
-      content="Mulai dari Rp100.000 — Form HTML + Apps Script. Cocok untuk staf admin, guru, pegawai pemerintahan, dan UMKM."
+      content="Mulai dari Rp149.000 — Form HTML + Apps Script + Spreadsheet. Solusi instan dari QEDev untuk otomatisasi data Anda."
     />
     <meta
       property="og:image"
-      content="https://basic.qedev.my.id/img/teamOffice-600.webp"
+      content="https://qedev.netlify.app/img/og-qedev.jpg"
+    />
+    <!-- 💡 Fallback kalau domain custom belum aktif -->
+    <meta
+      property="og:image:secure_url"
+      content="https://qedev.netlify.app/img/og-qedev.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Bonus Tutorial QEDev — Otomatisasi Spreadsheet Tanpa Coding"
     />
     <meta property="og:url" content="https://basic.qedev.my.id/" />
     <meta property="og:site_name" content="QEDev" />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:locale:alternate" content="en_US" />
+
+    <!-- ✅ Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="QEDev — Otomatisasi Spreadsheet Tanpa Ribet"
+    />
+    <meta
+      name="twitter:description"
+      content="Buat sistem otomatisasi data HTML + Spreadsheet tanpa coding. Mulai dari Rp149.000 aja!"
+    />
+    <meta
+      name="twitter:image"
+      content="https://qedev.netlify.app/img/og-qedev.jpg"
+    />
 
     <!-- ✅ Favicon -->
     <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
-    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png" />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
       href="img/apple-touch-icon.png"
     />
 
-    <!-- ✅ JSON-LD -->
+    <!-- ✅ SEO & Performance -->
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#2B6EE6" />
+    <meta http-equiv="Cache-Control" content="public, max-age=31536000" />
+    <link rel="preconnect" href="https://wa.me" />
+    <link rel="preconnect" href="https://www.youtube.com" />
+
+    <!-- ✅ Structured Data (JSON-LD Schema) -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "QEDev",
         "url": "https://basic.qedev.my.id",
-        "logo": "https://basic.qedev.my.id/img/favicon.svg"
+        "logo": "https://basic.qedev.my.id/img/favicon.svg",
+        "sameAs": [
+          "https://www.instagram.com/qedev.id",
+          "https://www.youtube.com/@qedev"
+        ]
       }
     </script>
 
-    <!-- ✅ Custom Animation Styles -->
+    <!-- ✅ Tailwind (Production CSS Build) -->
+    <link rel="stylesheet" href="dist/output.css" />
+
+    <!-- ✅ Animation Style -->
     <style>
       @keyframes fadeIn {
         from {
@@ -70,30 +115,29 @@
         will-change: transform, opacity;
       }
     </style>
+
+    <style>
+      /* ✨ Efek glow halus untuk elemen berwarna indigo */
+      .glow-indigo {
+        position: relative;
+        text-shadow:
+          0 0 8px rgba(79, 70, 229, 0.3),
+          0 0 16px rgba(79, 70, 229, 0.25);
+        transition:
+          text-shadow 1s ease,
+          color 0.6s ease;
+      }
+
+      /* Saat animasi aktif (fade-in) */
+      .glow-active {
+        text-shadow:
+          0 0 16px rgba(79, 70, 229, 0.6),
+          0 0 32px rgba(79, 70, 229, 0.4);
+      }
+    </style>
   </head>
 
   <body class="bg-gray-50 text-gray-800">
-    <!-- 💫 Preloader -->
-    <div
-      id="preloader"
-      class="fixed inset-0 flex flex-col items-center justify-center bg-white z-[9999] transition-all duration-700"
-    >
-      <div class="flex items-center gap-2 mb-4 animate-fade">
-        <div
-          class="w-10 h-10 bg-[#2B6EE6] flex items-center justify-center rounded-xl shadow-lg"
-        >
-          <span class="text-white text-xl font-bold tracking-tight">Qe</span>
-        </div>
-        <span class="text-lg font-semibold text-gray-700">Dev</span>
-      </div>
-      <div
-        class="w-8 h-8 border-4 border-[#2B6EE6]/30 border-t-[#2B6EE6] rounded-full animate-spin"
-      ></div>
-      <p class="text-gray-500 text-sm mt-3 animate-pulse">
-        Memuat pengalaman digital...
-      </p>
-    </div>
-
     <!-- ✅ Header -->
     <header
       id="mainHeader"
@@ -140,14 +184,15 @@
     <!-- ✅ Hero -->
     <section
       id="heroSection"
-      class="relative text-white py-28 text-center overflow-hidden transition-all duration-500"
+      class="relative text-white py-28 md:py-32 text-center overflow-hidden mb-20 transition-all duration-500"
       style="--x: 50%; --y: 40%"
     >
       <div
         id="heroBg"
         class="absolute inset-0 transition-transform duration-500 ease-out"
         style="
-          background: radial-gradient(
+          background:
+            radial-gradient(
               circle at var(--x) var(--y),
               rgba(255, 255, 255, 0.15),
               transparent 60%
@@ -163,30 +208,80 @@
           data-animate
           class="text-4xl md:text-5xl font-extrabold mb-6 opacity-0 translate-y-6 transition-all duration-700 ease-out"
         >
-          Otomatisasi Spreadsheet Anda dengan
-          <span class="text-yellow-300">Paket Basic</span>
+          Otomatisasi Spreadsheet Anda
+          <br />
+          dengan
+          <span class="text-yellow-300">Form + Script Otomatis Siap Pakai</span>
         </h2>
         <div
           id="heroIcons"
           data-animate
           class="flex justify-center items-center gap-3 mb-6 opacity-0 translate-y-6 transition-all duration-700 delay-200 ease-out"
         >
-          <div
-            class="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full shadow"
-          >
-            <span class="text-sm font-semibold">HTML</span>
-          </div>
-          <span class="opacity-70 font-bold text-lg">+</span>
-          <div
-            class="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full shadow"
-          >
-            <span class="text-sm font-semibold">Apps Script</span>
-          </div>
-          <span class="opacity-70 font-bold text-lg">+</span>
-          <div
-            class="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full shadow"
-          >
-            <span class="text-sm font-semibold">Spreadsheet</span>
+          <div class="flex items-center justify-center gap-3 mt-4">
+            <!-- HTML -->
+            <div
+              class="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full shadow"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 128 128"
+                class="w-5 h-5"
+              >
+                <path
+                  fill="#E34F26"
+                  d="M19 0l9 100 36 10 36-10 9-100H19z"
+                ></path>
+                <path fill="#EF652A" d="M64 117l29-8 8-92H64v100z"></path>
+                <path
+                  fill="#EBEBEB"
+                  d="M64 52H44l-2-20h22V12H29l1 12 4 44h30V52z"
+                ></path>
+                <path fill="#fff" d="M64 80l-18-5-1-11H33l2 25 29 8V80z"></path>
+              </svg>
+              <span class="text-sm font-semibold">HTML</span>
+            </div>
+
+            <span class="opacity-70 font-bold text-lg">+</span>
+
+            <!-- Apps Script -->
+            <div
+              class="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full shadow"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 48 48"
+                class="w-5 h-5"
+              >
+                <path fill="#34A853" d="M23 12l3-3 3 3-3 3z"></path>
+                <path fill="#4285F4" d="M33 22l3-3 3 3-3 3z"></path>
+                <path fill="#FBBC05" d="M23 32l3-3 3 3-3 3z"></path>
+                <path fill="#EA4335" d="M13 22l3-3 3 3-3 3z"></path>
+                <path fill="#188038" d="M23 12v24l3-3V15z"></path>
+              </svg>
+              <span class="text-sm font-semibold">Apps Script</span>
+            </div>
+
+            <span class="opacity-70 font-bold text-lg">+</span>
+
+            <!-- Spreadsheet -->
+            <div
+              class="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full shadow"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 48 48"
+                class="w-5 h-5"
+              >
+                <path fill="#188038" d="M6 8h36v32H6z"></path>
+                <path fill="#34A853" d="M8 10h32v28H8z"></path>
+                <path
+                  fill="#fff"
+                  d="M14 16h20v2H14zm0 6h20v2H14zm0 6h20v2H14z"
+                ></path>
+              </svg>
+              <span class="text-sm font-semibold">Spreadsheet</span>
+            </div>
           </div>
         </div>
         <p
@@ -209,6 +304,147 @@
       </div>
     </section>
 
+    <!-- ✅ Masalah -->
+    <section class="py-20 bg-white text-center">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2
+          data-animate
+          class="text-3xl md:text-4xl font-bold mb-6 text-gray-800"
+        >
+          😫 Masih Ribet Kelola Data?
+        </h2>
+
+        <p data-animate class="text-gray-600 mb-12 max-w-2xl mx-auto">
+          Banyak sekolah, RT, UMKM, dan kantor kecil masih kerja manual pakai
+          Excel & WhatsApp. Akhirnya data berantakan dan buang waktu.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div data-animate class="bg-gray-50 p-6 rounded-xl shadow">
+            📄 Data tercecer di banyak file
+          </div>
+
+          <div data-animate class="bg-gray-50 p-6 rounded-xl shadow">
+            ⏱️ Rekap laporan lama
+          </div>
+
+          <div data-animate class="bg-gray-50 p-6 rounded-xl shadow">
+            ❌ Sering salah input
+          </div>
+
+          <div data-animate class="bg-gray-50 p-6 rounded-xl shadow">
+            📱 File hanya di WhatsApp
+          </div>
+
+          <div data-animate class="bg-gray-50 p-6 rounded-xl shadow">
+            📊 Laporan tidak rapi
+          </div>
+
+          <div data-animate class="bg-gray-50 p-6 rounded-xl shadow">
+            😵 Admin cepat capek
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ Portfolio -->
+    <section class="py-20 bg-gray-50">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2
+          data-animate
+          class="text-3xl md:text-4xl font-bold text-center mb-12"
+        >
+          🚀 Sistem Nyata Buatan QEDev
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Card -->
+          <div data-animate class="bg-white p-6 rounded-xl shadow-lg">
+            <h3 class="font-semibold text-lg mb-2">🎓 PMB Online Kampus</h3>
+            <p class="text-gray-600 text-sm">
+              Pendaftaran mahasiswa + upload dokumen otomatis ke Drive.
+            </p>
+          </div>
+
+          <div data-animate class="bg-white p-6 rounded-xl shadow-lg">
+            <h3 class="font-semibold text-lg mb-2">🏢 Sistem Data LKS</h3>
+            <p class="text-gray-600 text-sm">
+              Database lembaga + export Excel & PDF.
+            </p>
+          </div>
+
+          <div data-animate class="bg-white p-6 rounded-xl shadow-lg">
+            <h3 class="font-semibold text-lg mb-2">📄 Invoice Otomatis</h3>
+            <p class="text-gray-600 text-sm">
+              Generate invoice & DO langsung dari form.
+            </p>
+          </div>
+
+          <div data-animate class="bg-white p-6 rounded-xl shadow-lg">
+            <h3 class="font-semibold text-lg mb-2">🕒 Absensi Karyawan</h3>
+            <p class="text-gray-600 text-sm">
+              Absensi online + laporan otomatis.
+            </p>
+          </div>
+
+          <div data-animate class="bg-white p-6 rounded-xl shadow-lg">
+            <h3 class="font-semibold text-lg mb-2">💰 Iuran Warga RT</h3>
+            <p class="text-gray-600 text-sm">
+              Monitoring pembayaran iuran digital.
+            </p>
+          </div>
+
+          <div data-animate class="bg-white p-6 rounded-xl shadow-lg">
+            <h3 class="font-semibold text-lg mb-2">📋 Sistem Kependudukan</h3>
+            <p class="text-gray-600 text-sm">
+              Pendataan warga + arsip digital.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ Cara Kerja -->
+    <section class="py-20 bg-white text-center">
+      <div class="max-w-5xl mx-auto px-6">
+        <h2 data-animate class="text-3xl md:text-4xl font-bold mb-12">
+          ⚙️ Cara Kerja QEDev
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+          <div data-animate class="p-4">
+            <div class="text-3xl mb-2">💬</div>
+            <h4 class="font-semibold mb-1">Chat</h4>
+            <p class="text-sm text-gray-600">Konsultasi via WhatsApp</p>
+          </div>
+
+          <div data-animate class="p-4">
+            <div class="text-3xl mb-2">🧠</div>
+            <h4 class="font-semibold mb-1">Analisa</h4>
+            <p class="text-sm text-gray-600">Kebutuhan sistem Anda</p>
+          </div>
+
+          <div data-animate class="p-4">
+            <div class="text-3xl mb-2">⚙️</div>
+            <h4 class="font-semibold mb-1">Build</h4>
+            <p class="text-sm text-gray-600">Pengembangan sistem</p>
+          </div>
+
+          <div data-animate class="p-4">
+            <div class="text-3xl mb-2">🧪</div>
+            <h4 class="font-semibold mb-1">Testing</h4>
+            <p class="text-sm text-gray-600">Uji & revisi ringan</p>
+          </div>
+
+          <div data-animate class="p-4">
+            <div class="text-3xl mb-2">🚀</div>
+            <h4 class="font-semibold mb-1">Go Live</h4>
+            <p class="text-sm text-gray-600">Sistem siap dipakai</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ✅ Section Target -->
     <section id="target" class="py-16 bg-gray-50 text-center">
       <div class="max-w-4xl mx-auto px-6">
@@ -216,25 +452,69 @@
           data-animate
           class="text-3xl font-bold mb-6 flex items-center justify-center gap-2 text-gray-800"
         >
-          <span class="text-yellow-400 text-4xl">💡</span> Cocok Untuk Siapa?
+          <span class="text-yellow-400 text-4xl">💡</span> Siap Bantu Anda!
         </h3>
-        <p
-          data-animate
-          class="text-gray-600 text-lg mb-10 leading-relaxed max-w-2xl mx-auto"
+
+        <!-- Blok kalimat muncul bertahap -->
+        <div
+          class="max-w-2xl mx-auto text-gray-600 text-lg leading-relaxed space-y-6"
         >
-          Solusi <span class="font-semibold text-indigo-600">QEDev</span> cocok
-          untuk staf administrasi, guru, pegawai pemerintahan, dan pelaku usaha
-          kecil yang ingin mulai otomatisasi data tanpa repot.
-        </p>
+          <p
+            data-animate
+            data-delay="0"
+            class="opacity-0 translate-y-6 transition-all duration-700 ease-out mb-12"
+          >
+            Dengan QEDev, spreadsheet Anda berubah jadi
+            <span class="font-semibold text-indigo-600"
+              >aplikasi digital otomatis</span
+            >. Tidak perlu install software, tidak perlu server mahal, cukup
+            buka browser dan langsung pakai. <br /><br />
+            Cocok untuk sekolah, kantor, RT/RW, UMKM, yayasan, hingga lembaga
+            pemerintahan.
+          </p>
+        </div>
 
         <img
           data-animate
           src="img/teamOffice-600.webp"
           alt="Ilustrasi tim kolaborasi digital"
-          class="w-full max-w-[600px] mx-auto rounded-2xl shadow-lg"
+          class="w-full max-w-[600px] mx-auto rounded-2xl shadow-lg mt-8 md:mt-14"
           loading="lazy"
           decoding="async"
         />
+      </div>
+    </section>
+
+    <!-- ✅ Testimoni -->
+    <section class="py-20 bg-gray-100 text-center">
+      <div class="max-w-5xl mx-auto px-6">
+        <h2 data-animate class="text-3xl md:text-4xl font-bold mb-12">
+          ⭐ Apa Kata Pengguna QEDev?
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div data-animate class="bg-white p-6 rounded-xl shadow">
+            <p class="text-gray-600 mb-3">
+              "Sekarang data sekolah kami rapi dan otomatis. Admin jadi jauh
+              lebih ringan."
+            </p>
+            <h4 class="font-semibold">— Operator Sekolah</h4>
+          </div>
+
+          <div data-animate class="bg-white p-6 rounded-xl shadow">
+            <p class="text-gray-600 mb-3">
+              "Invoice langsung jadi PDF. Klien jadi lebih percaya."
+            </p>
+            <h4 class="font-semibold">— UMKM Distributor</h4>
+          </div>
+
+          <div data-animate class="bg-white p-6 rounded-xl shadow">
+            <p class="text-gray-600 mb-3">
+              "Iuran RT sekarang transparan dan gampang dicek."
+            </p>
+            <h4 class="font-semibold">— Ketua RT</h4>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -294,7 +574,7 @@
             <ul class="text-left mb-8 space-y-3">
               <li>✅ Semua fitur Basic</li>
               <li>✅ Dashboard ringan (edit/delete)</li>
-              <li>✅ Serach/Filter Data</li>
+              <li>✅ Pencarian & Filtering Data</li>
               <li>✅ Export PDF / Excel otomatis</li>
               <li>✅ Branding / logo custom</li>
               <li>✅ 1x revisi kecil gratis</li>
@@ -335,14 +615,14 @@
 
     <!-- ✅ YouTube Demo -->
     <section class="py-16 text-center">
-      <h3 data-animate class="text-3xl font-bold mb-6">🎥 Contoh Demo</h3>
+      <h3 data-animate class="text-3xl font-bold mb-6">🎥 Bonus Tutorial</h3>
       <p data-animate class="text-gray-600 mb-8">
-        Berikut contoh sistem sederhana hasil Paket Basic.
+        Tutorial sistem sederhana hasil Paket Basic.
       </p>
       <div class="max-w-4xl mx-auto px-6">
         <iframe
           data-animate
-          class="w-full aspect-video rounded-2xl shadow-lg"
+          class="w-full aspect-video rounded-2xl shadow-lg mt-12"
           src="https://www.youtube.com/embed/OxxKmpB0RRc?rel=0"
           title="Demo Paket Basic"
           loading="lazy"
@@ -357,7 +637,7 @@
         Siap Punya Sistem Otomatis Sendiri?
       </h3>
       <p data-animate class="text-lg mb-8">
-        Mulai dari Rp100.000 saja, pekerjaanmu jadi lebih efisien dan rapi.
+        Mulai dari Rp149.000 saja, pekerjaanmu jadi lebih efisien dan rapi.
       </p>
       <a
         href="https://wa.me/6285189378311"
@@ -392,127 +672,113 @@
       </svg>
     </a>
 
-    <!-- ✅ Script -->
-    <script>
-      // 🔹 Preloader
-      window.addEventListener("load", () => {
-        const preloader = document.getElementById("preloader");
-        preloader.style.opacity = "0";
-        preloader.style.transform = "scale(1.05)";
-        setTimeout(() => preloader.remove(), 800);
-      });
-
-      // 🔹 Header Scroll Effect
-      const header = document.getElementById("mainHeader");
-      const logoBlue = document.getElementById("logoBlue");
-      const logoWhite = document.getElementById("logoWhite");
-      const brandText = document.getElementById("brandText");
-      const ctaButton = document.getElementById("ctaButton");
-
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 50) {
-          header.classList.add("bg-white", "shadow-md");
-          header.classList.remove("bg-transparent");
-          logoBlue.style.opacity = "1";
-          logoWhite.style.opacity = "0";
-          brandText.classList.replace("text-white", "text-indigo-600");
-          ctaButton.classList.replace("bg-white", "bg-indigo-600");
-          ctaButton.classList.replace("text-indigo-600", "text-white");
-        } else {
-          header.classList.remove("bg-white", "shadow-md");
-          header.classList.add("bg-transparent");
-          logoBlue.style.opacity = "0";
-          logoWhite.style.opacity = "1";
-          brandText.classList.replace("text-indigo-600", "text-white");
-          ctaButton.classList.replace("bg-indigo-600", "bg-white");
-          ctaButton.classList.replace("text-white", "text-indigo-600");
-        }
-      });
-
-      // 🔹 Scroll Animation + Stagger
-      const animatedEls = document.querySelectorAll("[data-animate]");
-      if (animatedEls.length) {
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              const el = entry.target;
-              if (entry.isIntersecting) {
-                const parent = el.parentElement;
-                const siblings = [...parent.querySelectorAll("[data-animate]")];
-                const index = siblings.indexOf(el);
-                el.style.transitionDelay = `${index * 0.15}s`;
-
-                el.classList.remove("opacity-0", "translate-y-6");
-                el.classList.add("opacity-100", "translate-y-0");
-                el.style.transition = "all 0.8s cubic-bezier(0.25,0.8,0.25,1)";
-                observer.unobserve(el);
-              }
-            });
-          },
-          { threshold: 0.15, rootMargin: "0px 0px -50px 0px" }
-        );
-        animatedEls.forEach((el) => {
-          el.classList.add("opacity-0", "translate-y-6");
-          observer.observe(el);
-        });
-      }
-
-      // 🔹 Floating WhatsApp muncul otomatis
-      const waBtn = document.getElementById("floatingWA");
-      let waVisible = false;
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 200 && !waVisible) {
-          waBtn.classList.remove(
-            "opacity-0",
-            "translate-y-6",
-            "pointer-events-none"
-          );
-          waBtn.classList.add("opacity-100", "translate-y-0");
-          waVisible = true;
-        } else if (window.scrollY <= 200 && waVisible) {
-          waBtn.classList.add(
-            "opacity-0",
-            "translate-y-6",
-            "pointer-events-none"
-          );
-          waBtn.classList.remove("opacity-100", "translate-y-0");
-          waVisible = false;
-        }
-      });
-    </script>
-    <!-- 🪄 Scroll Animation -->
+    <!-- ✅ Script Clean Final QEDev + Glow Effect -->
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        const animatedEls = document.querySelectorAll("[data-animate]");
+        /* ======================
+       🔹 2. HEADER SCROLL EFFECT
+    ====================== */
+        const header = document.getElementById("mainHeader");
+        const logoBlue = document.getElementById("logoBlue");
+        const logoWhite = document.getElementById("logoWhite");
+        const brandText = document.getElementById("brandText");
+        const ctaButton = document.getElementById("ctaButton");
 
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry, index) => {
-              if (entry.isIntersecting) {
-                // Tambahkan delay kecil biar muncul selang-seling (stagger)
-                setTimeout(() => {
-                  entry.target.classList.remove("opacity-0", "translate-y-6");
-                  entry.target.classList.add("opacity-100", "translate-y-0");
-                  entry.target.style.transition =
-                    "all 0.8s ease-out, opacity 0.6s ease-out";
-                }, index * 120);
-                observer.unobserve(entry.target);
-              }
-            });
-          },
-          { threshold: 0.2 }
-        );
+        window.addEventListener("scroll", () => {
+          const scrolled = window.scrollY > 50;
+          header.classList.toggle("bg-white", scrolled);
+          header.classList.toggle("shadow-md", scrolled);
+          header.classList.toggle("bg-transparent", !scrolled);
 
-        animatedEls.forEach((el) => {
-          el.classList.add(
-            "opacity-0",
-            "translate-y-6",
-            "transition-all",
-            "duration-700",
-            "ease-out"
-          );
-          observer.observe(el);
+          logoBlue.style.opacity = scrolled ? "1" : "0";
+          logoWhite.style.opacity = scrolled ? "0" : "1";
+
+          brandText.classList.toggle("text-white", !scrolled);
+          brandText.classList.toggle("text-indigo-600", scrolled);
+
+          ctaButton.classList.toggle("bg-white", !scrolled);
+          ctaButton.classList.toggle("text-indigo-600", !scrolled);
+          ctaButton.classList.toggle("bg-indigo-600", scrolled);
+          ctaButton.classList.toggle("text-white", scrolled);
         });
+
+        /* ======================
+       🔹 3. SCROLL ANIMATION + STAGGER + GLOW
+    ====================== */
+        const animatedEls = document.querySelectorAll("[data-animate]");
+        const glowEls = document.querySelectorAll(".text-indigo-600");
+
+        if (animatedEls.length) {
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                  const delay = entry.target.dataset.delay
+                    ? parseInt(entry.target.dataset.delay)
+                    : index * 120;
+
+                  setTimeout(() => {
+                    entry.target.classList.remove("opacity-0", "translate-y-6");
+                    entry.target.classList.add("opacity-100", "translate-y-0");
+                    entry.target.style.transition =
+                      "all 0.8s ease-out, opacity 0.6s ease-out";
+
+                    // ✨ Tambahkan efek glow untuk elemen berwarna indigo
+                    glowEls.forEach((glow) => {
+                      glow.classList.add("glow-indigo");
+                      glow.classList.add("glow-active");
+                      setTimeout(
+                        () => glow.classList.remove("glow-active"),
+                        1200,
+                      );
+                    });
+                  }, delay);
+
+                  observer.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.2, rootMargin: "0px 0px -50px 0px" },
+          );
+
+          animatedEls.forEach((el) => {
+            el.classList.add(
+              "opacity-0",
+              "translate-y-6",
+              "transition-all",
+              "duration-700",
+              "ease-out",
+            );
+            observer.observe(el);
+          });
+        }
+
+        /* ======================
+       🔹 4. FLOATING WHATSAPP APPEAR
+    ====================== */
+        const waBtn = document.getElementById("floatingWA");
+        if (waBtn) {
+          let waVisible = false;
+          window.addEventListener("scroll", () => {
+            if (window.scrollY > 200 && !waVisible) {
+              waBtn.classList.remove(
+                "opacity-0",
+                "translate-y-6",
+                "pointer-events-none",
+              );
+              waBtn.classList.add("opacity-100", "translate-y-0");
+              waVisible = true;
+            } else if (window.scrollY <= 200 && waVisible) {
+              waBtn.classList.add(
+                "opacity-0",
+                "translate-y-6",
+                "pointer-events-none",
+              );
+              waBtn.classList.remove("opacity-100", "translate-y-0");
+              waVisible = false;
+            }
+          });
+        }
       });
     </script>
   </body>
