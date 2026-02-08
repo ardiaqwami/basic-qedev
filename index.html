@@ -1,27 +1,29 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Paket Basic — Otomatisasi Spreadsheet | QEDev</title>
+    <title>Sistem Administrasi & Bisnis Digital Berbasis Cloud | QEDev</title>
 
     <!-- ✅ Tailwind CDN (dev), build CSS nanti -->
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- ✅ SEO & OG Meta -->
+    <meta property="og:locale" content="id_ID" />
     <meta
       name="description"
-      content="Mulai otomatisasi data dengan HTML + Google Apps Script + Spreadsheet. Paket Basic QEDev cocok untuk staf admin, guru, pegawai pemerintahan, dan UMKM."
+      content="QEDev menyediakan jasa pembuatan sistem administrasi dan bisnis digital berbasis cloud untuk UMKM, sekolah, dan instansi. Kelola data, dokumen, dan laporan secara otomatis tanpa server mahal."
     />
+
     <link rel="canonical" href="https://basic.qedev.my.id/" />
     <meta property="og:type" content="website" />
     <meta
       property="og:title"
-      content="Paket Basic — Otomatisasi Spreadsheet | QEDev"
+      content="Sistem Administrasi & Bisnis Digital Berbasis Cloud | QEDev"
     />
     <meta
       property="og:description"
-      content="Mulai dari Rp100.000 — Form HTML + Apps Script. Cocok untuk staf admin, guru, pegawai pemerintahan, dan UMKM."
+      content="Solusi sistem administrasi dan layanan digital berbasis cloud untuk UMKM, sekolah, dan instansi. Otomatisasi data, dokumen, dan laporan tanpa server mahal."
     />
     <meta
       property="og:image"
@@ -29,16 +31,39 @@
     />
     <meta property="og:url" content="https://basic.qedev.my.id/" />
     <meta property="og:site_name" content="QEDev" />
+
     <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Sistem Administrasi & Bisnis Digital | QEDev"
+    />
+    <meta
+      name="twitter:description"
+      content="Bangun sistem administrasi & bisnis digital berbasis cloud tanpa server mahal. Cocok untuk UMKM, sekolah, dan instansi."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "ui-sans-serif", "system-ui"],
+            },
+          },
+        },
+      };
+    </script>
 
     <!-- ✅ Favicon -->
     <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="img/apple-touch-icon.png"
-    />
 
     <!-- ✅ JSON-LD -->
     <script type="application/ld+json">
@@ -47,8 +72,22 @@
         "@type": "Organization",
         "name": "QEDev",
         "url": "https://basic.qedev.my.id",
-        "logo": "https://basic.qedev.my.id/img/favicon.svg"
+        "logo": "https://basic.qedev.my.id/img/favicon.svg",
+        "description": "Jasa pembuatan sistem administrasi dan bisnis digital berbasis cloud untuk UMKM, sekolah, dan instansi.",
+        "sameAs": ["https://wa.me/6285189378311"]
       }
+    </script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "ui-sans-serif", "system-ui"],
+            },
+          },
+        },
+      };
     </script>
 
     <!-- ✅ Custom Animation Styles -->
@@ -89,7 +128,7 @@
       <div
         class="w-8 h-8 border-4 border-[#2B6EE6]/30 border-t-[#2B6EE6] rounded-full animate-spin"
       ></div>
-      <p class="text-gray-500 text-sm mt-3 animate-pulse">
+      <p class="text-base text-gray-600 leading-relaxed"></p>
         Memuat pengalaman digital...
       </p>
     </div>
@@ -138,74 +177,330 @@
     </header>
 
     <!-- ✅ Hero -->
+
     <section
       id="heroSection"
-      class="relative text-white py-28 text-center overflow-hidden transition-all duration-500"
-      style="--x: 50%; --y: 40%"
+      class="relative overflow-hidden text-white py-28
+            bg-gradient-to-br
+            from-indigo-900 via-indigo-800 to-blue-700"
     >
-      <div
-        id="heroBg"
-        class="absolute inset-0 transition-transform duration-500 ease-out"
-        style="
-          background: radial-gradient(
-              circle at var(--x) var(--y),
-              rgba(255, 255, 255, 0.15),
-              transparent 60%
-            ),
-            linear-gradient(to bottom right, #4338ca, #2563eb, #60a5fa);
-          transform: scale(1.05);
-        "
-      ></div>
+      <!-- overlay depth -->
+      <div class="absolute inset-0 bg-black/10"></div>
 
-      <div class="max-w-4xl mx-auto px-6 relative z-10">
-        <h2
-          id="heroTitle"
-          data-animate
-          class="text-4xl md:text-5xl font-extrabold mb-6 opacity-0 translate-y-6 transition-all duration-700 ease-out"
-        >
-          Otomatisasi Spreadsheet Anda dengan
-          <span class="text-yellow-300">Paket Basic</span>
-        </h2>
-        <div
-          id="heroIcons"
-          data-animate
-          class="flex justify-center items-center gap-3 mb-6 opacity-0 translate-y-6 transition-all duration-700 delay-200 ease-out"
-        >
-          <div
-            class="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full shadow"
+      <div
+        class="relative z-10 max-w-6xl mx-auto px-6
+              grid md:grid-cols-2 gap-12 items-center"
+      >
+        <!-- LEFT: TEXT -->
+        <div class="text-center md:text-left">
+          <h1
+            class="text-4xl md:text-5xl font-semibold tracking-tight leading-tight mb-6"
           >
-            <span class="text-sm font-semibold">HTML</span>
-          </div>
-          <span class="opacity-70 font-bold text-lg">+</span>
-          <div
-            class="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full shadow"
+            Bangun Sistem Administrasi & Bisnis Digital
+            <span class="text-yellow-300 block">
+              Berbasis Cloud & Spreadsheet
+            </span>
+          </h1>
+
+          <p
+            class="text-base md:text-lg text-white/90 leading-relaxed mb-8 max-w-xl"
           >
-            <span class="text-sm font-semibold">Apps Script</span>
-          </div>
-          <span class="opacity-70 font-bold text-lg">+</span>
+            QEDev membantu UMKM, sekolah, dan instansi membangun
+            <b>sistem web app terintegrasi spreadsheet</b>
+            untuk mengelola data, dokumen, dan laporan secara otomatis.
+          </p>
+
           <div
-            class="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full shadow"
+            class="flex flex-col sm:flex-row gap-4
+                  justify-center md:justify-start"
           >
-            <span class="text-sm font-semibold">Spreadsheet</span>
+            <a
+              href="#jalur"
+              class="bg-white text-indigo-700 px-8 py-3 rounded-lg
+                    font-semibold shadow-lg
+                    hover:bg-gray-100 hover:shadow-xl
+                    transition-all duration-300"
+            >
+              🔍 Lihat Solusi
+            </a>
+
+            <a
+              href="#portfolio"
+              class="bg-indigo-700/80 text-white px-8 py-3 rounded-lg
+                    font-semibold shadow-lg
+                    hover:bg-indigo-800 hover:shadow-xl
+                    transition-all duration-300"
+            >
+              📂 Lihat Portfolio
+            </a>
           </div>
         </div>
-        <p
-          id="heroDesc"
-          data-animate
-          class="text-lg mb-10 max-w-2xl mx-auto text-white/90 opacity-0 translate-y-6 transition-all duration-700 delay-400 ease-out"
-        >
-          Dibangun dengan <b>HTML + Google Apps Script + Spreadsheet</b>. Cukup
-          isi form, data langsung tersimpan otomatis — cepat, praktis,
-          <b>tanpa repot coding</b>.
+
+        <!-- RIGHT: VISUAL -->
+        <div class="relative">
+          <img
+            src="img/hero-dashboard.webp"
+            alt="Ilustrasi sistem web app berbasis spreadsheet"
+            class="w-full rounded-2xl shadow-2xl"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+
+ 
+
+    <section
+      id="jalur"
+      class="py-24 bg-gradient-to-b from-gray-50 to-indigo-50"
+    >
+      <div class="max-w-6xl mx-auto px-6 text-center">
+        <!-- Header -->
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight">
+          Satu Solusi, Tiga Jalur Kebutuhan
+        </h2>
+        <p class="text-gray-600 max-w-2xl mx-auto mb-16">
+          Pilih pendekatan yang paling sesuai dengan skala dan tujuan sistem
+          Anda.
         </p>
-        <a
-          href="#pricing"
-          id="heroCTA"
-          data-animate
-          class="inline-block bg-white text-indigo-700 px-8 py-3 rounded-lg font-semibold shadow-lg hover:bg-gray-100 transition transform opacity-0 translate-y-6 duration-700 delay-600 ease-out"
-        >
-          🚀 Lihat Detail Paket
-        </a>
+
+        <!-- Cards -->
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- 🟢 PAKET -->
+          <div
+            class="group bg-white border border-gray-200 rounded-2xl p-8 shadow hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
+          >
+            <div
+              class="w-14 h-14 mx-auto mb-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-2xl"
+            >
+              ⚡
+            </div>
+
+            <h3 class="text-lg font-semibold">Paket Cepat & Siap Pakai</h3>
+
+            <p class="text-base text-gray-600 leading-relaxed"></p>
+              Solusi otomatisasi instan untuk UMKM, guru, dan admin kecil tanpa
+              perlu setup rumit.
+            </p>
+
+            <a
+              href="#pricing"
+              class="inline-flex items-center gap-1 text-green-600 font-semibold text-sm group-hover:gap-2 transition-all"
+            >
+              Lihat Paket <span>→</span>
+            </a>
+          </div>
+
+          <!-- 🔵 INSTANSI -->
+          <div
+            class="group bg-white border border-gray-200 rounded-2xl p-8 shadow hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
+          >
+            <div
+              class="w-14 h-14 mx-auto mb-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-2xl"
+            >
+              🏢
+            </div>
+
+            <h3 class="text-lg font-semibold">Sistem Skala Instansi</h3>
+
+            <p class="text-base text-gray-600 leading-relaxed"></p>
+              Sistem administrasi & layanan digital lengkap untuk sekolah,
+              kantor, dan instansi pemerintah.
+            <a
+              href="#portfolio"
+              class="inline-flex items-center gap-1 text-blue-600 font-semibold text-sm group-hover:gap-2 transition-all"
+            >
+              Lihat Portfolio <span>→</span>
+            </a>
+          </div>
+
+          <!-- 🔴 CUSTOM -->
+          <div
+            class="group bg-white border border-gray-200 rounded-2xl p-8 shadow hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
+          >
+            <div
+              class="w-14 h-14 mx-auto mb-6 rounded-full bg-red-100 text-red-600 flex items-center justify-center text-2xl"
+            >
+              🛠️
+            </div>
+
+            <h3 class="text-xl font-bold mb-3 text-red-600">Proyek Custom</h3>
+
+
+            <p class="text-base text-gray-600 leading-relaxed">
+              Sistem khusus yang disesuaikan dengan SOP, workflow, dan kebutuhan
+              unik organisasi Anda.
+            </p>
+
+            <a
+              href="https://wa.me/6285189378311"
+              class="inline-flex items-center gap-1 text-red-600 font-semibold text-sm group-hover:gap-2 transition-all"
+            >
+              Konsultasi <span>→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio" class="py-20 bg-gray-50">
+      <div class="max-w-6xl mx-auto px-6">
+        <!-- Header -->
+        <div class="text-center mb-12">
+          <span
+            class="text-sm font-medium uppercase tracking-wider text-indigo-600"
+          >
+            PORTFOLIO
+          </span>
+          <h2 class="text-3xl md:text-4xl font-semibold tracking-tight">
+            Portofolio Sistem yang Pernah Dibangun
+          </h2>
+          <p class="text-base text-gray-600 leading-relaxed">
+            Sistem administrasi & layanan digital berbasis cloud.
+          </p>
+        </div>
+
+        <!-- Grid -->
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- CARD 1 -->
+          <div
+            class="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition"
+          >
+            <span
+              class="inline-block mb-3 px-3 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-700"
+            >
+              Pendidikan
+            </span>
+            <h3 class="font-bold text-lg mb-2">🎓 PMB Online System</h3>
+            <p class="text-sm text-gray-600 mb-4">
+              Sistem pendaftaran online lengkap dengan upload dokumen, nomor
+              pendaftaran otomatis, dan arsip cloud.
+            </p>
+            <a
+              href="https://wa.me/6285189378311"
+              class="text-blue-600 text-sm font-semibold hover:underline"
+            >
+              Lihat studi kasus →
+            </a>
+          </div>
+
+          <!-- CARD 2 -->
+          <div
+            class="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition"
+          >
+            <span
+              class="inline-block mb-3 px-3 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-700"
+            >
+              Pemerintahan
+            </span>
+            <h3 class="font-bold text-lg mb-2">🏛️ Administrasi Kependudukan</h3>
+            <p class="text-sm text-gray-600 mb-4">
+              Pengelolaan data warga, KK, surat pengantar, serta statistik
+              kependudukan berbasis web.
+            </p>
+            <a
+              href="https://wa.me/6285189378311"
+              class="text-green-600 text-sm font-semibold hover:underline"
+            >
+              Diskusi kebutuhan →
+            </a>
+          </div>
+
+          <!-- CARD 3 -->
+          <div
+            class="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition"
+          >
+            <span
+              class="inline-block mb-3 px-3 py-1 text-xs font-semibold rounded-full bg-purple-100 text-purple-700"
+            >
+              Instansi
+            </span>
+            <h3 class="font-bold text-lg mb-2">🗂️ Case Management System</h3>
+            <p class="text-sm text-gray-600 mb-4">
+              Sistem manajemen kasus dengan upload bukti, dokumentasi lapangan,
+              dan pembuatan dokumen PDF otomatis.
+            </p>
+            <a
+              href="https://wa.me/6285189378311"
+              class="text-purple-600 text-sm font-semibold hover:underline"
+            >
+              Lihat workflow →
+            </a>
+          </div>
+
+          <!-- CARD 4 -->
+          <div
+            class="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition"
+          >
+            <span
+              class="inline-block mb-3 px-3 py-1 text-xs font-semibold rounded-full bg-indigo-100 text-indigo-700"
+            >
+              SDM / HR
+            </span>
+            <h3 class="font-bold text-lg mb-2">💼 HR & SDM Digital</h3>
+            <p class="text-sm text-gray-600 mb-4">
+              Database pegawai, arsip dokumen digital, dan administrasi
+              kepegawaian terpusat.
+            </p>
+            <a
+              href="https://wa.me/6285189378311"
+              class="text-indigo-600 text-sm font-semibold hover:underline"
+            >
+              Konsultasi sistem →
+            </a>
+          </div>
+
+          <!-- CARD 5 -->
+          <div
+            class="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition"
+          >
+            <span
+              class="inline-block mb-3 px-3 py-1 text-xs font-semibold rounded-full bg-yellow-100 text-yellow-700"
+            >
+              Bisnis / UMKM
+            </span>
+            <h3 class="font-bold text-lg mb-2">🧾 Invoice & Delivery Order</h3>
+            <p class="text-sm text-gray-600 mb-4">
+              Sistem penjualan dengan invoice & delivery order otomatis,
+              terintegrasi dengan arsip cloud.
+            </p>
+            <a
+              href="#pricing"
+              class="text-yellow-700 text-sm font-semibold hover:underline"
+            >
+              Lihat paket →
+            </a>
+          </div>
+
+          <!-- CARD 6 -->
+          <div
+            class="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition"
+          >
+            <span
+              class="inline-block mb-3 px-3 py-1 text-xs font-semibold rounded-full bg-red-100 text-red-700"
+            >
+              Komunitas
+            </span>
+            <h3 class="font-bold text-lg mb-2">💰 Iuran & Keuangan Warga</h3>
+            <p class="text-sm text-gray-600 mb-4">
+              Monitoring iuran, status pembayaran, dan rekap keuangan warga
+              secara transparan.
+            </p>
+            <a
+              href="https://wa.me/6285189378311"
+              class="text-red-600 text-sm font-semibold hover:underline"
+            >
+              Minta demo →
+            </a>
+          </div>
+        </div>
+
+        <!-- Footer note -->
+        <p class="text-center text-sm text-gray-500 mt-12">
+          🔒 Demo lengkap hanya dibagikan saat konsultasi untuk menjaga privasi
+          klien.
+        </p>
       </div>
     </section>
 
@@ -241,7 +536,7 @@
     <!-- ✅ Pricing -->
     <section id="pricing" class="bg-gray-50 py-20 text-center">
       <div class="max-w-6xl mx-auto px-6">
-        <h2 data-animate class="text-4xl font-bold mb-6 text-gray-800">
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight">
           💼 Pilih Paket Otomatisasi
         </h2>
         <p data-animate class="text-gray-600 mb-6 max-w-2xl mx-auto">
@@ -330,24 +625,6 @@
             >
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- ✅ YouTube Demo -->
-    <section class="py-16 text-center">
-      <h3 data-animate class="text-3xl font-bold mb-6">🎥 Contoh Demo</h3>
-      <p data-animate class="text-gray-600 mb-8">
-        Berikut contoh sistem sederhana hasil Paket Basic.
-      </p>
-      <div class="max-w-4xl mx-auto px-6">
-        <iframe
-          data-animate
-          class="w-full aspect-video rounded-2xl shadow-lg"
-          src="https://www.youtube.com/embed/OxxKmpB0RRc?rel=0"
-          title="Demo Paket Basic"
-          loading="lazy"
-          allowfullscreen
-        ></iframe>
       </div>
     </section>
 
@@ -449,7 +726,7 @@
               }
             });
           },
-          { threshold: 0.15, rootMargin: "0px 0px -50px 0px" }
+          { threshold: 0.15, rootMargin: "0px 0px -50px 0px" },
         );
         animatedEls.forEach((el) => {
           el.classList.add("opacity-0", "translate-y-6");
@@ -465,7 +742,7 @@
           waBtn.classList.remove(
             "opacity-0",
             "translate-y-6",
-            "pointer-events-none"
+            "pointer-events-none",
           );
           waBtn.classList.add("opacity-100", "translate-y-0");
           waVisible = true;
@@ -473,46 +750,11 @@
           waBtn.classList.add(
             "opacity-0",
             "translate-y-6",
-            "pointer-events-none"
+            "pointer-events-none",
           );
           waBtn.classList.remove("opacity-100", "translate-y-0");
           waVisible = false;
         }
-      });
-    </script>
-    <!-- 🪄 Scroll Animation -->
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const animatedEls = document.querySelectorAll("[data-animate]");
-
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry, index) => {
-              if (entry.isIntersecting) {
-                // Tambahkan delay kecil biar muncul selang-seling (stagger)
-                setTimeout(() => {
-                  entry.target.classList.remove("opacity-0", "translate-y-6");
-                  entry.target.classList.add("opacity-100", "translate-y-0");
-                  entry.target.style.transition =
-                    "all 0.8s ease-out, opacity 0.6s ease-out";
-                }, index * 120);
-                observer.unobserve(entry.target);
-              }
-            });
-          },
-          { threshold: 0.2 }
-        );
-
-        animatedEls.forEach((el) => {
-          el.classList.add(
-            "opacity-0",
-            "translate-y-6",
-            "transition-all",
-            "duration-700",
-            "ease-out"
-          );
-          observer.observe(el);
-        });
       });
     </script>
   </body>
