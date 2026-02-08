@@ -78,18 +78,6 @@
       }
     </script>
 
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ["Inter", "ui-sans-serif", "system-ui"],
-            },
-          },
-        },
-      };
-    </script>
-
     <!-- ✅ Custom Animation Styles -->
     <style>
       @keyframes fadeIn {
@@ -107,6 +95,15 @@
       }
       [data-animate] {
         will-change: transform, opacity;
+      }
+      @keyframes floatSlow {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
       }
     </style>
   </head>
@@ -128,7 +125,7 @@
       <div
         class="w-8 h-8 border-4 border-[#2B6EE6]/30 border-t-[#2B6EE6] rounded-full animate-spin"
       ></div>
-      <p class="text-base text-gray-600 leading-relaxed"></p>
+      <p class="text-base text-gray-600 leading-relaxed">
         Memuat pengalaman digital...
       </p>
     </div>
@@ -180,16 +177,13 @@
 
     <section
       id="heroSection"
-      class="relative overflow-hidden text-white py-28
-            bg-gradient-to-br
-            from-indigo-900 via-indigo-800 to-blue-700"
+      class="relative overflow-hidden text-white py-28 bg-gradient-to-br from-indigo-900 via-indigo-800 to-blue-700"
     >
       <!-- overlay depth -->
       <div class="absolute inset-0 bg-black/10"></div>
 
       <div
-        class="relative z-10 max-w-6xl mx-auto px-6
-              grid md:grid-cols-2 gap-12 items-center"
+        class="relative z-10 max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center"
       >
         <!-- LEFT: TEXT -->
         <div class="text-center md:text-left">
@@ -211,25 +205,18 @@
           </p>
 
           <div
-            class="flex flex-col sm:flex-row gap-4
-                  justify-center md:justify-start"
+            class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
           >
             <a
               href="#jalur"
-              class="bg-white text-indigo-700 px-8 py-3 rounded-lg
-                    font-semibold shadow-lg
-                    hover:bg-gray-100 hover:shadow-xl
-                    transition-all duration-300"
+              class="bg-white text-indigo-700 px-8 py-3 rounded-lg font-semibold shadow-lg hover:bg-gray-100 hover:shadow-xl transition-all duration-300"
             >
               🔍 Lihat Solusi
             </a>
 
             <a
               href="#portfolio"
-              class="bg-indigo-700/80 text-white px-8 py-3 rounded-lg
-                    font-semibold shadow-lg
-                    hover:bg-indigo-800 hover:shadow-xl
-                    transition-all duration-300"
+              class="bg-indigo-700/80 text-white px-8 py-3 rounded-lg font-semibold shadow-lg hover:bg-indigo-800 hover:shadow-xl transition-all duration-300"
             >
               📂 Lihat Portfolio
             </a>
@@ -238,29 +225,42 @@
 
         <!-- RIGHT: VISUAL -->
         <div class="relative">
+          <div
+            class="absolute -inset-4 bg-indigo-500/20 blur-3xl rounded-full"
+          ></div>
+
           <img
-            src="img/hero-dashboard.webp"
-            alt="Ilustrasi sistem web app berbasis spreadsheet"
-            class="w-full rounded-2xl shadow-2xl"
-            loading="lazy"
+            src="img/hero-dashboard.png"
+            alt="Ilustrasi sistem web app terintegrasi spreadsheet berbasis cloud dan mobile"
+            class="relative w-full max-w-md mx-auto md:max-w-full drop-shadow-2xl animate-[floatSlow_6s_ease-in-out_infinite]"
+            loading="eager"
           />
+
+          <p class="text-sm text-white/80 mt-2">
+            ☁️ Berjalan di Cloud Google —
+            <span class="font-semibold text-yellow-300">
+              tanpa server & tanpa biaya hosting bulanan
+            </span>
+          </p>
         </div>
       </div>
     </section>
 
-
- 
+    <!-- 🔽 Smooth transition divider -->
+    <div class="h-12 bg-gradient-to-b from-indigo-800/40 to-indigo-50"></div>
 
     <section
       id="jalur"
-      class="py-24 bg-gradient-to-b from-gray-50 to-indigo-50"
+      class="relative py-16 bg-gradient-to-b from-indigo-50 via-white to-white"
     >
       <div class="max-w-6xl mx-auto px-6 text-center">
-        <!-- Header -->
-        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight">
+        <h2
+          class="text-3xl md:text-4xl font-extrabold tracking-tight text-indigo-900"
+        >
           Satu Solusi, Tiga Jalur Kebutuhan
         </h2>
-        <p class="text-gray-600 max-w-2xl mx-auto mb-16">
+
+        <p class="text-indigo-700/80 max-w-2xl mx-auto mt-4 mb-16">
           Pilih pendekatan yang paling sesuai dengan skala dan tujuan sistem
           Anda.
         </p>
@@ -269,17 +269,22 @@
         <div class="grid md:grid-cols-3 gap-8">
           <!-- 🟢 PAKET -->
           <div
-            class="group bg-white border border-gray-200 rounded-2xl p-8 shadow hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
+            class="group bg-white rounded-2xl p-8 shadow border border-gray-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
           >
             <div
               class="w-14 h-14 mx-auto mb-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-2xl"
             >
               ⚡
             </div>
+            <span
+              class="inline-block mb-2 px-3 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-700"
+            >
+              Paling Cepat
+            </span>
 
-            <h3 class="text-lg font-semibold">Paket Cepat & Siap Pakai</h3>
+            <h3 class="text-lg font-semibold mb-3">Paket Cepat & Siap Pakai</h3>
 
-            <p class="text-base text-gray-600 leading-relaxed"></p>
+            <p class="text-base text-gray-600 leading-relaxed mb-6">
               Solusi otomatisasi instan untuk UMKM, guru, dan admin kecil tanpa
               perlu setup rumit.
             </p>
@@ -294,7 +299,7 @@
 
           <!-- 🔵 INSTANSI -->
           <div
-            class="group bg-white border border-gray-200 rounded-2xl p-8 shadow hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
+            class="group bg-white rounded-2xl p-8 shadow border border-gray-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
           >
             <div
               class="w-14 h-14 mx-auto mb-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-2xl"
@@ -302,11 +307,19 @@
               🏢
             </div>
 
-            <h3 class="text-lg font-semibold">Sistem Skala Instansi</h3>
+            <span
+              class="inline-block mb-2 px-3 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-700"
+            >
+              Paling Lengkap
+            </span>
 
-            <p class="text-base text-gray-600 leading-relaxed"></p>
+            <h3 class="text-lg font-semibold mb-3">Sistem Skala Instansi</h3>
+
+            <p class="text-base text-gray-600 leading-relaxed mb-6">
               Sistem administrasi & layanan digital lengkap untuk sekolah,
               kantor, dan instansi pemerintah.
+            </p>
+
             <a
               href="#portfolio"
               class="inline-flex items-center gap-1 text-blue-600 font-semibold text-sm group-hover:gap-2 transition-all"
@@ -317,18 +330,24 @@
 
           <!-- 🔴 CUSTOM -->
           <div
-            class="group bg-white border border-gray-200 rounded-2xl p-8 shadow hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
+            class="group bg-white rounded-2xl p-8 shadow border border-gray-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
           >
             <div
               class="w-14 h-14 mx-auto mb-6 rounded-full bg-red-100 text-red-600 flex items-center justify-center text-2xl"
             >
               🛠️
             </div>
+            <span
+              class="inline-block mb-2 px-3 py-1 text-xs font-semibold rounded-full bg-red-100 text-red-700"
+            >
+              Fleksibel
+            </span>
 
-            <h3 class="text-xl font-bold mb-3 text-red-600">Proyek Custom</h3>
+            <h3 class="text-lg font-semibold mb-3 text-red-600">
+              Proyek Custom
+            </h3>
 
-
-            <p class="text-base text-gray-600 leading-relaxed">
+            <p class="text-base text-gray-600 leading-relaxed mb-6">
               Sistem khusus yang disesuaikan dengan SOP, workflow, dan kebutuhan
               unik organisasi Anda.
             </p>
@@ -353,7 +372,9 @@
           >
             PORTFOLIO
           </span>
-          <h2 class="text-3xl md:text-4xl font-semibold tracking-tight">
+          <h2
+            class="text-3xl md:text-4xl font-extrabold tracking-tight text-indigo-900"
+          >
             Portofolio Sistem yang Pernah Dibangun
           </h2>
           <p class="text-base text-gray-600 leading-relaxed">
